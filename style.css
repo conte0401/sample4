@@ -1,0 +1,797 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #000;
+}
+
+img{
+    max-width: 100%;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    color: #fff;
+}
+
+.active{
+    opacity: 1;         /* 透明度を元に戻す */
+    top: 0;             /* ずらしていた位置を戻すことで上に上がっているようにみえる */
+}
+
+#header{
+    position: relative;
+}
+
+#header .logo img{
+    position: absolute;
+    width: 20%;
+    margin: 20px;
+    object-fit: cover;
+}
+
+/* ヘッダーのナビ部分 */
+  
+.header__nav{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(-100%);
+    background-color: #000;
+    z-index: 9999;
+    transition: .5s;
+}
+  
+.nav-items{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+}
+  
+  /* ナビのリンク */
+
+.nav-items__item a{
+    color: #fff;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 24px;
+}
+  
+.nav-items__item:last-child a{
+    margin-bottom: 0;
+} 
+ 
+  /* ハンバーガーメニュー */
+  
+.header__hamburger{
+    width: 48px;
+    margin: 20px;
+}
+  
+.hamburger{
+    background-color: transparent;
+    border-color: transparent;
+    z-index: 9999;
+    position: fixed;/*固定する*/
+    top: 0;
+    right: 0;
+}
+  
+  /* ハンバーガーメニューの線 */
+.hamburger span{
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+    transition: ease .4s;
+    display: block;
+}
+  
+.hamburger span:nth-child(1){
+    top: 0;
+}
+  
+.hamburger span:nth-child(2){
+    margin: 8px 0;
+}
+  
+.hamburger span:nth-child(3){
+    top: 0;
+}
+  
+  /* ハンバーガーメニュークリック後のスタイル */
+
+.header__nav.active{
+    transform: translateX(0);
+    position: fixed;
+}
+  
+.hamburger.active span:nth-child(1){
+    top: 5px;
+    transform: rotate(45deg);
+}
+  
+.hamburger.active span:nth-child(2){
+    opacity: 0;
+}
+  
+.hamburger.active span:nth-child(3){
+    top: -13px;
+    transform: rotate(-45deg);
+}
+
+#header .net{
+    background-color: rgb(255, 255, 0, 0.7);
+    position: absolute;
+    position: fixed;
+    top: 10%;
+    right: 0;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px;
+    writing-mode: vertical-rl;
+    z-index: 100;
+}
+
+#header .net a{
+    color: #fff;
+}
+
+#header .takeout{
+    background-color: rgb(255, 255, 0, 0.7);
+    position: absolute;
+    position: fixed;
+    top: 52%;
+    right: 0;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px;
+    writing-mode: vertical-rl;
+    z-index: 100;
+}
+
+#header .takeout a{
+    color: #fff;
+}
+
+#header .top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    right: 10%;
+    bottom: 3%;
+    width: 80px;
+    height: 80px;
+    background: #fafbfc;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: .7;
+    display: none;
+}
+
+#header .top a{
+    color: red;
+}
+
+#info h2{
+    color: yellow;
+    padding: 100px 0 0 100px;
+    font-size: 50px;
+    border-bottom: solid 8px rgb(148, 0, 0, 0.5);
+    text-shadow: 5px 5px 30px yellow;
+}
+
+#info h3{
+    color: yellow;
+    text-align: right;
+    font-size: 40px;
+    padding: 20px 100px 0 0;
+    text-shadow: 5px 5px 30px yellow;
+}
+
+#info .text-info{
+    text-align: center;
+    font-size: 40px;
+    margin: 100px 0;
+}
+
+#info .flex{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 100px;
+}
+
+#info .text{
+    font-size: 25px;
+}
+
+#info .text p{
+    margin-bottom: 50px;
+}
+
+#info img{
+    height: 450px;
+}
+
+.slider .slick-slide{
+    width: 600px;
+    height: 400px;
+    margin: 0 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider .slick-slide img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider .slick-arrow{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 0;
+    position: absolute;
+    top: 180px;
+    z-index: 1;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+}
+
+.slider .slick-arrow::before{
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #09000d;
+    border-width: 3px 3px 0 0;
+    position: absolute;
+    top: 24px;
+    transform: rotate(45deg);
+}
+
+.slider .slick-next{
+    right: 0;
+}
+
+.slider .slick-prev{
+    left: 0;
+}
+
+.slider .slick-next::before{
+    left: 20px;
+}
+
+.slider .slick-prev::before{
+    border-width: 0 0 3px 3px;
+    right: 22px;
+}
+
+.dots .slick-dots{
+    text-align: center;
+}
+
+.dots .slick-dots li{
+    display: inline-block;
+}
+
+.dots .slick-dots button{
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    font-size: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background: #bcbcbc;
+    border-radius: 50%;
+}
+
+.dots .slick-dots .slick-active button{
+    background: #0a467d;
+}
+
+#system{
+    background-image: url(img/system.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color:rgba(0,0,0,0.5);
+    background-blend-mode: darken;
+    width: 100%;
+    height: 1000px;
+}
+
+#system h2{
+    color: #fff;
+    text-align: right;
+    padding: 100px 100px 0 0;
+    font-size: 50px;
+    border-bottom: solid 8px rgb(255, 255, 0, 0.5);
+    text-shadow: 5px 5px 30px #fff;
+}
+
+#system h3{
+    color: yellow;
+    text-align: left;
+    font-size: 40px;
+    padding: 20px 0 0 100px;
+    text-shadow: 5px 5px 30px yellow;
+    margin-bottom: 100px;
+}
+
+#system .text{
+    width: 600px;
+    margin: 50px auto;
+}
+
+#system .text p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#system .menu{
+    width: 300px;
+    background-color: rgb(0, 0, 255, 0.4);
+    font-size: 30px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#system .menu p{
+    font-size: 30px;
+}
+
+#system .under{
+    text-decoration: underline;
+}
+
+#system .nomihodai{
+    margin-bottom: 100px;
+}
+
+#system .insyoku{
+    margin-bottom: 100px;
+}
+
+.vr h2{
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 5px 5px 30px #fff;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.vr p{
+    color: #000;
+    background-color: #fff;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#access h2{
+    color: yellow;
+    padding: 100px 0 0 100px;
+    font-size: 50px;
+    border-bottom: solid 8px rgb(0, 128, 0, 0.5);
+    text-shadow: 5px 5px 30px yellow;
+}
+
+#access h3{
+    color: yellow;
+    text-align: right;
+    font-size: 40px;
+    padding: 20px 100px 0 0;
+    text-shadow: 5px 5px 30px yellow;
+    margin-bottom: 100px;
+}
+
+#access .ac-flex{
+    display: flex;
+}
+
+#access .ac-info{
+    background-color: rgba(0, 0, 255, 0.4);
+    width: 45%;
+    height: 450px;
+    margin: 0 10px;
+}
+
+#access .ac-info p{
+    line-height: 30px;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+#access .map{
+    width: 45%;
+}
+
+iframe{
+    height: 450px;
+}
+
+#contact h2{
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 5px 5px 30px #fff;
+    margin-top: 100px;
+}
+
+#contact h3{
+    color: #fff;
+    text-align: left;
+    font-size: 40px;
+    text-shadow: 5px 5px 30px #fff;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#contact dl{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#contact dt{
+    font-size: 30px;
+    color: #fff;
+    margin: 10px 0;
+}
+
+#contact dd input{
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    background-color: #555;
+}
+
+#contact dd textarea{
+    width: 100%;
+    height: 150px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    background-color: #555;
+}
+
+#contact .button {
+    text-align: center;
+}
+
+#contact .button input {
+    width: 20%;
+    background-color: rgba(0, 0, 255, 0.5);
+    color: #fff;
+    padding: 15px 0;
+    border: solid 1px rgba(0, 0, 255, 0.5);
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+#footer{
+ 
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#footer p{
+    color: #000;
+    letter-spacing: 5px;
+}
+
+@media screen and (max-width:800px) {
+
+    #header .logo img{
+        width: 80%;
+        top: 43%;
+        left: 47%;
+        transform: translate(-50%,-50%);
+    }
+
+    #header .top-img{
+        height: 100vh;
+    }
+
+    .top-img img{
+        max-width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: 15% 50%;
+    }
+
+    #header .flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #header .net{
+        position: static;
+        writing-mode: horizontal-tb;
+        position: fixed;
+        top: 90%;
+        right: 50%;
+        width: 50%;
+        font-size: 20px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    #header .takeout{
+        position: static;
+        writing-mode: horizontal-tb;
+        position: fixed;
+        top: 90%;
+        width: 50%;
+        font-size: 20px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    #header .top{
+        right: 5%;
+        bottom: 13%;
+        width: 100px;
+        height: 100px;
+        display: flex;
+    }
+
+    #info .text-info{
+        font-size: 40px;
+    }
+
+    #info .flex{
+        display: block;
+        margin: 50px;
+    }
+    
+    #info .text{
+        font-size: 24px;
+    }
+
+    #info img{
+        width: 100%;
+        height: auto;
+    }
+
+    .food-img{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .food-img img{
+        width: 80%;
+        padding-bottom: 20px;
+    }
+
+    #system .text{
+        width: 700px;
+        margin: 50px auto;
+    }
+    
+    #system .text p{
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .vr h2{
+        margin-bottom: 25px;
+    }
+
+    .vr p{
+        width: 100%;
+    }
+
+    #access .ac-flex{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #access .ac-info{
+        width: 80%;
+        margin: 20px;
+    }
+    
+    #access .ac-info p{
+        line-height: 50px;
+        margin-top: 50px;
+        margin-left: 50px;
+        font-size: 20px;
+    }
+
+    #access br{
+        display: none;
+    }
+    
+    #access .map{
+        width: 80%;
+    }
+ 
+}
+
+@media screen and (max-width:400px) {
+
+    #header .logo img{
+        width: 50%;
+        top: 45%;
+        left: 45%;
+        transform: translate(-50%,-50%);
+    }
+
+    #header .top-img{
+        height: 100vh;
+    }
+
+    .top-img img{
+        max-width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: 15% 50%;
+    }
+
+    #header .net{
+        top: 88%;
+        font-size: 15px;
+        padding: 30px 10px;
+    }
+
+    #header .takeout{
+        top: 88%;
+        font-size: 15px;
+        padding: 30px 10px;
+    }
+
+    #header .top{
+        bottom: 15%;
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+        display: flex;
+    }
+
+    #info h2{
+        padding: 100px 0 0 20px;
+        font-size: 30px;
+    }
+    
+    #info h3{
+        font-size: 25px;
+        padding: 20px 20px 0 0;
+    }
+
+    #info .text-info{
+        font-size: 20px;
+        margin: 50px 0;
+    }
+
+    #info .flex{
+        margin: 30px;
+    }
+
+    #info .text{
+        font-size: 12px;
+    }
+
+    #system{
+        height: 700px;
+    }
+
+    #system h2{
+        padding: 100px 20px 0 0;
+        font-size: 30px;
+    }
+    
+    #system h3{
+        font-size: 25px;
+        padding: 20px 0 0 20px;
+    }
+
+    #system .text{
+        width: 350px;
+        margin: 50px auto;
+    }
+    
+    #system .text p{
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+    
+    #system .menu{
+        width: 200px;
+        background-color: rgb(0, 0, 255, 0.5);
+    }
+    
+    #system .menu p{
+        font-size: 20px;
+    }
+
+    #system .nomihodai{
+        margin-bottom: 50px;
+    }
+    
+    #system .insyoku{
+        margin-bottom: 50px;
+    }
+
+    .vr h2{
+        margin-bottom: 25px;
+    }
+
+    .vr p{
+        height: 300px;
+    }
+
+    #access h2{
+        padding: 100px 0 0 20px;
+        font-size: 30px;
+    }
+    
+    #access h3{
+        font-size: 25px;
+        padding: 20px 20px 0 0;
+    }
+
+    #access .ac-info{
+        height: 300px;
+    }
+
+    #access .ac-info p{
+        line-height: 50px;
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 10px;
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    #contact h2{
+        font-size: 30px;
+    }
+    
+    #contact h3{
+        font-size: 25px;
+    }
+
+    #contact dt{
+        font-size: 20px;
+    }
+
+    #footer p{
+        color: #000;
+        letter-spacing: 0;
+    }
+
+}
